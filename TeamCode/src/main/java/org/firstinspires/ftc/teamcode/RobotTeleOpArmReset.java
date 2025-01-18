@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
 @TeleOp
-public class RobotTeleOp extends OpMode {
+public class RobotTeleOpArmReset extends OpMode {
     RobotChassisDrive robot = new RobotChassisDrive();
     RobotArm arm = new RobotArm();
     RobotIntake intake = new RobotIntake();
@@ -63,11 +63,7 @@ public class RobotTeleOp extends OpMode {
 
         int armPosition = arm.wormGearMotor.getCurrentPosition();
 
-        if ((armPosition <= 1600 && armPosition >= 0) || (armPosition >= 1600 && armPad.left_stick_y > 0) || (armPosition <= 0 && armPad.left_stick_y < 0)){
-            arm.wormGearMotor.setPower(-armPad.left_stick_y);
-        } else {
-            arm.wormGearMotor.setPower(0);
-        }
+        arm.wormGearMotor.setPower(-armPad.left_stick_y);
 
         telemetry.addData("Arm Position", armPosition);
         // extend, retract, or neither

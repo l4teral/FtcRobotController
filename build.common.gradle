@@ -15,6 +15,8 @@
  * updates to the FTC SDK into your code.
  */
 
+
+import java.text.SimpleDateFormat
 import java.util.regex.Pattern
 
 apply plugin: 'com.android.application'
@@ -53,6 +55,8 @@ android {
         minSdkVersion 24
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 28
+        buildConfigField "String", "APP_BUILD_TIME", '"' + (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.ROOT).format(new Date())) + '"'
+        multiDexEnabled true
 
         /**
          * We keep the versionCode and versionName of robot controller applications in sync with
@@ -89,14 +93,14 @@ android {
             signingConfig signingConfigs.release
 
             ndk {
-                abiFilters "armeabi-v7a", "arm64-v8a"
+                abiFilters "armeabi-v7a"
             }
         }
         debug {
             debuggable true
             jniDebuggable true
             ndk {
-                abiFilters "armeabi-v7a", "arm64-v8a"
+                abiFilters "armeabi-v7a"
             }
         }
     }

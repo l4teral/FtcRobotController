@@ -53,7 +53,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 @Disabled
 public class SensorKLNavxMicro extends LinearOpMode {
 
-    /** In this sample, for illustration purposes we use two interfaces on the one gyro object.
+    /** In this sample, for illustration purposes we use two interfaces on the one gyro object.lo ,li
      * That's likely atypical: you'll probably use one or the other in any given situation,
      * depending on what you're trying to do. {@link IntegratingGyroscope} (and it's base interface,
      * {@link Gyroscope}) are common interfaces supported by possibly several different gyro
